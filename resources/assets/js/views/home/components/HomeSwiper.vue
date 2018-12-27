@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="home-wrapper">
         <swiper :options="swiperOption">
             <swiper-slide v-for="item of swiperList" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl">
@@ -34,10 +34,10 @@
 </script>
 
 <style lang="scss" scoped>
-    .wrapper /deep/ .swiper-pagination-bullet-active {
+    .home-wrapper /deep/ .swiper-pagination-bullet-active {
         background: white;
     }
-    .wrapper {
+    .home-wrapper {
         width: 100%;
         height: 0;
         overflow:hidden;
