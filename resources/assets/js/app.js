@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 
+
 const app = new Vue({
     el: '#app',
     router,

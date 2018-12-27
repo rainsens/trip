@@ -2,9 +2,9 @@
     
     <div class="home-icons">
         
-        <swiper>
+        <swiper :options="swiperOption">
             
-            <swiper-slide v-for="page of pages" :key="page">
+            <swiper-slide v-for="(page, index) of pages" :key="index">
                 <div class="icon" v-for="item of page" :key="item.id">
                     <div class="icon-img">
                         <img :src="item.imgUrl" />
@@ -23,26 +23,22 @@
 	export default {
 		name: "HomeIcons",
         
+        props: {
+			list: Array
+        },
+        
         data () {
 			return {
-				iconsList: [
-                    { id: '1', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', 'desc': '景点门票' },
-                    { id: '2', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png', 'desc': '北京必游' },
-                    { id: '3', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png', 'desc': '一游' },
-                    { id: '4', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1811/f6/e54fad3ea337b02.gif', 'desc': '年终大促' },
-                    { id: '5', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/b2/bfbc5d66e0ab5a02.png', 'desc': '冰雪大世界' },
-                    { id: '6', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png', 'desc': '故宫' },
-                    { id: '7', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/fc/b10a6b2e4f0fe102.png', 'desc': '崇礼滑雪' },
-                    { id: '8', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/fc/b10a6b2e4f0fe102.png', 'desc': '北京滑雪' },
-                    { id: '9', 'imgUrl': 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png', 'desc': '泡温泉' }
-                ]
+				swiperOption: {
+					autoplay: false
+                }
             }
         },
         
         computed: {
 			pages () {
 				const pages = []
-                this.iconsList.forEach((item, index) => {
+                this.list.forEach((item, index) => {
                 	const page = Math.floor(index / 8)
                     if (!pages[page]) {
                     	pages[page] = []
