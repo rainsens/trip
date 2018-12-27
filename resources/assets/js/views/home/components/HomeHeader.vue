@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="home-header">
         <div class="header-left">
             <div class="iconfont back-icon">&#xe624;</div>
         </div>
@@ -21,7 +21,7 @@
 
 <style lang="scss" scoped>
     @import "../../../static/styles/variables";
-    .header {
+    .home-header {
         display: flex;
         line-height: .86rem;
         background: $bgColor;
